@@ -109,6 +109,14 @@ GPIOC2::GPIOC2(int pin_number, bool direction)
                 << pin_number;
         throw GPIOC2_Exception(message.str());
     }
+      
+    if (set_direction() == false)
+    {
+        std::stringstream message;
+        message << "Unable to set the direction of pin " 
+                << pin_number;
+        throw GPIOC2_Exception(message.str());
+    }
 
 }
 
